@@ -47,12 +47,10 @@ h3 {
   background-color: #ADD8E6;
   margin-left: auto;
   margin-right: auto;
-  border-color: bisque
 }
 
 .pokemon-card:hover {
   transform: translateY(-4px);
-  border-color: #61dafb
 }
 
 .types {
