@@ -44,8 +44,21 @@ useEffect (() => {
          <div className="pokemon-card">
           <h3>{pokemons.name}</h3>
           <img src="./soculos.png" alt="squirtle" className="pokemon"/>
-          <h3>{pokemons.stats[0] .stat.name + ' ' +
-              pokemons.stats[0] .base_stat + ' ' + pokemons.stats[1] .stat.name + ' ' + pokemons.stats[0] .base_stat } </h3>
+         
+          <div className="stats">
+        <p><strong>HP:</strong> {pokemons.stats[0].base_stat}</p>
+        <p><strong>Attack:</strong> {pokemons.stats[1].base_stat}</p>
+        <p><strong>Defense:</strong> {pokemons.stats[2].base_stat}</p>
+        <p><strong>Speed:</strong> {pokemons.stats[5].base_stat}</p>
+      </div>  
+          <div className="types">
+
+          {pokemons.types.map((type, index) => (
+          <span key={index} className={`type ${type.type.name}`}>
+            {type.type.name}
+          </span>
+        ))}
+      </div>
           </div>
       </div>
     </div>

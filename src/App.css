@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-  background-color: #282c34
+  background-color: #282c34;
+  background: url(https://getwallpapers.com/wallpaper/full/9/6/2/384801.jpg)
 }
 
 h1 {
   font-size: 70px;
   font-family: 'Press Start 2P', cursive;
-  color: #a2caea
+  background: linear-gradient(103deg, #87CEFA,#ADD8E6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
 }
 
 h3 {
@@ -30,14 +35,16 @@ h3 {
 }
 
 .pokemon-card {
+  font-family: 'Press Start 2P', cursive;
   border: 25px solid var(--border);
-  border-radius: 12px;
+  border-radius: 100px;
+  box-shadow: 0px 4px 30px black;
   padding: 16px;
-  height: 250px;
-  width: 250px;
+  height: 355px;
+  width: 270px;
   background: var(--card-bg);
   transition: all 0.2s ease;
-  background-color: #a2caea;
+  background-color: #ADD8E6;
   margin-left: auto;
   margin-right: auto;
   border-color: bisque
@@ -48,41 +55,39 @@ h3 {
   border-color: #61dafb
 }
 
+.types {
+  margin-top: 15px;
+}
+
+.type {
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 20px; 
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.type.fire { background: #FF6B35; }
+.type.water { background: #5195FE; }
+.type.grass { background: #4CAF50; }
+.type.electric { background: #FFCE4B; color: #333; }
+.type.ice { background: #51C4E7; }
+.type.fighting { background: #E18C74; }
+.type.poison { background: #B567CE; }
+.type.ground { background: #D6BC7E; }
+.type.flying { background: #A891F6; }
+.type.psychic { background: #F36651; }
+.type.bug { background: #8CB32B; }
+.type.rock { background: #B8A489; }
+.type.ghost { background: #5F6DBC; }
+.type.dragon { background: #6E5AD1; }
+.type.dark { background: #5A5465; }
+.type.steel { background: #5E7164; }
+.type.fairy { background: #D685AD; }
+.type.normal { background: #B5B9C4; }
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
