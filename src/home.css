@@ -1,0 +1,150 @@
+/* CSS DO HOME.JSX */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-bg {
+  width: 100%;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+.container h1 {
+  font-size: 55px;
+  font-family: 'Press Start 2P', cursive;
+
+  background: #350101;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  margin-bottom: 40px;
+}
+
+/* CARD */
+
+.card {
+  width: 450px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+
+  padding: 40px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* AVATAR */
+
+.avatar {
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 5px solid white;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXTO */
+
+.card p {
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+
+  background: #350101;
+  -webkit-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  margin: 0;
+}
+
+/* POKEBOLA */
+
+.bola {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.bola:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.bola img {
+  width: 70px;
+  height: 70px;
+}
+
+/* BOTÃO */
+
+.pokebola {
+  padding: 15px 25px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #ff1c1c;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.pokebola:hover {
+  background: #d40000;
+  transform: scale(1.05);
+}
+
+.pokebola a {
+  text-decoration: none;
+  color: white;
+
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+}
