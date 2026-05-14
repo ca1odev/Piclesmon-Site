@@ -23,7 +23,7 @@ body,
   background-repeat: no-repeat;
 }
 
-h1 {
+.app h1 {
   font-size: 70px;
   font-family: 'Press Start 2P', cursive;
   background: linear-gradient(103deg, #87CEFA,#ADD8E6);
@@ -33,7 +33,7 @@ h1 {
 
 }
 
-h3 {
+.app h3 {
 
   font-family: 'Press Start 2P', cursive;
 }

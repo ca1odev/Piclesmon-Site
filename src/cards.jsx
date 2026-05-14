@@ -3,6 +3,7 @@ import axios from 'axios';
 import './cards.css';
 
 
+
 function App() {
 
   const [squirtle, setSquirtle] = useState(null);
@@ -63,15 +64,15 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div className="Apps">
 
-      <h1></h1>
+      <h1>TIME</h1>
 
       <div className="pokemon-container">
 
         {/* Squirtle */}
 
-        <div className="pokemon-card water-card">
+        <div className="water-card">
 
           <h3>{squirtle.name}</h3>
 
@@ -128,7 +129,7 @@ function App() {
 
         {/* Treecko */}
 
-        <div className="pokemon-card grass-card">
+        <div className="grass-card">
 
           <h3>{treecko.name}</h3>
 

@@ -13,7 +13,7 @@ body,
   min-height: 100vh;
   text-align: center;
 
-  background-image: url('./tbg.jpg');
+  background-image: url('./assets/fundoP.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,14 +21,15 @@ body,
   padding: 40px 20px;
 }
 
-h1 {
+
+.Apps h1{
+  color: rgb(245, 245, 245);
   font-size: 50px;
   font-family: 'Press Start 2P', cursive;
-  color: white;
   margin-bottom: 50px;
 }
 
-h3 {
+.Apps h3 {
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -60,10 +61,34 @@ h3 {
 
 .water-card {
   background-color: #87CEFA;
+  font-family: 'Press Start 2P', cursive;
+
+  width: 270px;
+  height: 355px;
+
+  padding: 20px;
+
+  border-radius: 40px;
+
+  box-shadow: 0px 4px 30px black;
+
+  transition: 0.2s;
 }
 
 .grass-card {
   background-color: rgb(27, 216, 2);
+  font-family: 'Press Start 2P', cursive;
+
+  width: 270px;
+  height: 355px;
+
+  padding: 20px;
+
+  border-radius: 40px;
+
+  box-shadow: 0px 4px 30px black;
+
+  transition: 0.2s;
 }
 
 .pokemon {

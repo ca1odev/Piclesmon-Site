@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './home.css';
-import fundo from './fundo.jpg';
-import pokebola from './pokebola.png';
-import avatar from './avatar.png';
+import fundo from './assets/fundo.jpg';
+import pokebola from './assets/pokebola.png';
+import avatar from './assets/avatar.png';
 function TrainerPage() {
   return (
     <div

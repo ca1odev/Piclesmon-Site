@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './card2.css';
-import fundo2 from './tbg.jpg';
 
 function App() {
 
