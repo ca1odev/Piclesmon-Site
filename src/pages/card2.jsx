@@ -1,39 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './card2.css';
+import rocks from '../assets/t.png';
+import useFetchpokeapi from '../hooks/userFetchpokeapi';
 
 function App() {
-
-  const [pokemons, setPokemons] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-
-    const getData = async () => {
-
-      try {
-
-        const res = await axios.get(
-          'https://pokeapi.co/api/v2/pokemon/treecko'
-        );
-
-        setPokemons(res.data);
-        setLoading(false);
-
-      } catch (err) {
-
-        console.error("Erro ao carregar API", err);
-        setLoading(false);
-        setError(true);
-
-      }
-
-    };
-
-    getData();
-
-  }, []);
+  const {pokemons, loading, error} = useFetchpokeapi("geodude");
 
   if (loading) {
     return <div className="loader">Carregando Pokédex...</div>;
@@ -56,9 +28,9 @@ function App() {
           <h3>{pokemons.name}</h3>
 
           <img
-            src="./t.png"
-            alt="treecko"
-            className="pokemon"
+            src={rocks}
+            alt="geodude"
+            className="pokemon2"
           />
 
           <div className="stats">

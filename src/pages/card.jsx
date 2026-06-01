@@ -1,31 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './card.css';
+import useFetchpokeapi from '../hooks/userFetchpokeapi';
 
 function App() {
-
-const [pokemons, setPokemons] = useState({});
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(false);
-
-useEffect (() => {
-  const getData = async () => {
-    try {
-      const res = await
-    axios.get('https://pokeapi.co/api/v2/pokemon/squirtle');
-            setPokemons(res.data);
-            console.log('Success', res.data);
-            setLoading(false);
-    }
-    catch (err) {
-      console.error("Erro ao carregar API", err);
-      setLoading(false)
-      setError(true)
-    }
-  };
-  getData();
-}, {});
-
+  const {pokemons, loading, error} = useFetchpokeapi("mudkip");
 
   if (loading) return 
     <div 
@@ -43,7 +21,7 @@ useEffect (() => {
       <div className="pokemon-container">
          <div className="pokemon-card">
           <h3>{pokemons.name}</h3>
-          <img src="./soculos.png" alt="squirtle" className="pokemon"/>
+          <img src="./soculos.png" alt="mudkip" className="pokemon"/>
          
           <div className="stats">
         <p><strong>HP:</strong> {pokemons.stats[0].base_stat}</p>

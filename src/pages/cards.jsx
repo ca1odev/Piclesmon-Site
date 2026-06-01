@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './cards.css';
-
+import {useParams} from 'react-router-dom'
+import useFetchPokeapi from '../hooks/userFetchpokeapi';
 
 
 function App() {
+  const {id}=useParams();
+  const {pokemons}=useFetchPokeapi(id);
+  const [mudkip, setMudkip] = useState(null);
+  const [geodude, setGeodude] = useState(null);
+  const [staryu, setStaryu] = useState(null);
 
-  const [squirtle, setSquirtle] = useState(null);
-  const [treecko, setTreecko] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -18,16 +22,22 @@ function App() {
 
       try {
 
-        const squirtleRes = await axios.get(
-          'https://pokeapi.co/api/v2/pokemon/squirtle'
+        const mudkipRes = await axios.get(
+          'https://pokeapi.co/api/v2/pokemon/mudkip'
         );
 
-        const treeckoRes = await axios.get(
-          'https://pokeapi.co/api/v2/pokemon/treecko'
+        const geodudeRes = await axios.get(
+          'https://pokeapi.co/api/v2/pokemon/geodude'
         );
 
-        setSquirtle(squirtleRes.data);
-        setTreecko(treeckoRes.data);
+        const staryuRes = await axios.get(
+          'https://pokeapi.co/api/v2/pokemon/staryu'
+        );
+
+
+        setMudkip(mudkipRes.data);
+        setGeodude(geodudeRes.data);
+        setStaryu(staryuRes.data);
 
         setLoading(false);
 
@@ -70,15 +80,15 @@ function App() {
 
       <div className="pokemon-container">
 
-        {/* Squirtle */}
+        {/* mudkip */}
 
         <div className="water-card">
 
-          <h3>{squirtle.name}</h3>
+          <h3>{mudkip.name}</h3>
 
           <img
             src="/soculos.png"
-            alt="squirtle"
+            alt="mudkip"
             className="pokemon"
           />
 
@@ -87,32 +97,32 @@ function App() {
             <p>
               <strong>HP:</strong>
               {' '}
-              {squirtle.stats[0].base_stat}
+              {mudkip.stats[0].base_stat}
             </p>
 
             <p>
               <strong>Attack:</strong>
               {' '}
-              {squirtle.stats[1].base_stat}
+              {mudkip.stats[1].base_stat}
             </p>
 
             <p>
               <strong>Defense:</strong>
               {' '}
-              {squirtle.stats[2].base_stat}
+              {mudkip.stats[2].base_stat}
             </p>
 
             <p>
               <strong>Speed:</strong>
               {' '}
-              {squirtle.stats[5].base_stat}
+              {mudkip.stats[5].base_stat}
             </p>
 
           </div>
 
           <div className="types">
 
-            {squirtle.types.map((type, index) => (
+            {mudkip.types.map((type, index) => (
 
               <span
                 key={index}
@@ -127,15 +137,15 @@ function App() {
 
         </div>
 
-        {/* Treecko */}
+        {/* Geodude */}
 
-        <div className="grass-card">
+        <div className="rock-card">
 
-          <h3>{treecko.name}</h3>
+          <h3>{geodude.name}</h3>
 
           <img
             src="/t.png"
-            alt="squirtle"
+            alt="geodude"
             className="pokemon"
           />
 
@@ -144,32 +154,32 @@ function App() {
             <p>
               <strong>HP:</strong>
               {' '}
-              {treecko.stats[0].base_stat}
+              {geodude.stats[0].base_stat}
             </p>
 
             <p>
               <strong>Attack:</strong>
               {' '}
-              {treecko.stats[1].base_stat}
+              {geodude.stats[1].base_stat}
             </p>
 
             <p>
               <strong>Defense:</strong>
               {' '}
-              {treecko.stats[2].base_stat}
+              {geodude.stats[2].base_stat}
             </p>
 
             <p>
               <strong>Speed:</strong>
               {' '}
-              {treecko.stats[5].base_stat}
+              {geodude.stats[5].base_stat}
             </p>
 
           </div>
 
           <div className="types">
 
-            {treecko.types.map((type, index) => (
+            {geodude.types.map((type, index) => (
 
               <span
                 key={index}
@@ -179,6 +189,63 @@ function App() {
               </span>
 
             ))}
+
+          </div>
+
+        </div>
+
+                {/* staryu */}
+
+        <div className="water-card">
+
+          <h3>{staryu.name}</h3>
+
+          <img
+            src="/staryyu.png"
+            alt="staryu"
+            className="pokemon"
+          />
+
+          <div className="stats">
+
+            <p>
+              <strong>HP:</strong>
+              {' '}
+              {staryu.stats[0].base_stat}
+            </p>
+
+            <p>
+              <strong>Attack:</strong>
+              {' '}
+              {staryu.stats[1].base_stat}
+            </p>
+
+            <p>
+              <strong>Defense:</strong>
+              {' '}
+              {staryu.stats[2].base_stat}
+            </p>
+
+            <p>
+              <strong>Speed:</strong>
+              {' '}
+              {staryu.stats[5].base_stat}
+            </p>
+
+          </div>
+
+          <div className="types">
+
+            {staryu.types.map((type, index) => (
+
+              <span
+                key={index}
+                className={`type ${type.type.name}`}
+              >
+                {type.type.name}
+              </span>
+
+            ))};
 
           </div>
 

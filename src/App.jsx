@@ -1,19 +1,20 @@
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
-import TrainerPage from "./home";
-import Pokemons from "./cards"
-import Pokemon from "./card";
-import Pokemon2 from "./card2";
+import TrainerPage from "./pages/home";
+import Pokemons from "./pages/cards";
+import Pokemon from "./pages/card";
+import Pokemon2 from "./pages/card2";
+import Pokemon3 from "./pages/card3";
 
 function App(){
    return(
        <BrowserRouter>
        <Routes>
            <Route  path="/" exact element = {< TrainerPage />}/>
+           <Route  path="/pokemon/:id" element = {< Pokemon />} />
            <Route  path="/pokemons" element = {< Pokemons />} />
-           <Route  path="/pokemon" element = {< Pokemon />} />
-           <Route  path="/pokemon2" element = {< Pokemon2 />} />
+
            </Routes>
        </BrowserRouter>
    )

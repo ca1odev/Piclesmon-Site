@@ -13,7 +13,7 @@ body,
   min-height: 100vh;
   text-align: center;
 
-  background-image: url('./assets/fundoP.jpg');
+  background-image: url('../assets/fundoP.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -75,8 +75,8 @@ body,
   transition: 0.2s;
 }
 
-.grass-card {
-  background-color: rgb(27, 216, 2);
+.rock-card {
+  background-color: rgb(124, 103, 7);
   font-family: 'Press Start 2P', cursive;
 
   width: 270px;
@@ -120,7 +120,7 @@ body,
 .type.flying { background: #A891F6; }
 .type.psychic { background: #F36651; }
 .type.bug { background: #8CB32B; }
-.type.rock { background: #B8A489; }
+.type.rock { background: #b8a489; }
 .type.ghost { background: #5F6DBC; }
 .type.dragon { background: #6E5AD1; }
 .type.dark { background: #5A5465; }
