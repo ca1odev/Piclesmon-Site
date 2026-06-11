@@ -6,7 +6,9 @@ function useFetchPokeapi(pokemon) {
   const [pokemons, setPokemons] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
+  const [specie, setSpecie] = useState({});
+  const [evolution, setEvolution] = useState({});
+  const [myPokemon, setMyPokemon] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -20,6 +22,9 @@ function useFetchPokeapi(pokemon) {
             }
           });
 
+
+       
+
         setPokemons(res.data);
         console.log('Success:', res.data);
         setLoading(false);
@@ -32,6 +37,58 @@ function useFetchPokeapi(pokemon) {
     };
     getData();
   }, [pokemons]);
+
+  useEffect(() => { //useEffect busca o pokemon da api, usando o pokemon da url
+    const getSpecie = async () => {
+      try {
+        const res = await axios.get(pokemons.specie.url, {});
+        setSpecie(res.data);
+        console.log("Sucesso:", res)
+        setLoading(false);
+      } catch (err) {
+        console.error("Erro ao carregar API", err);
+        setLoading(false);
+        setError(true);
+      }
+    };
+    getSpecie();
+ }, [pokemons]); 
+
+ useEffect(() => { //useEffect busca o pokemon da api, usando o pokemon da url
+    const getEvolutions = async () => {
+      try {
+        const res = await axios.get(specie.evolution_chain.url, {});
+        setEvolution(res.data);
+        console.log("Sucesso:", res)
+        setLoading(false);
+      } catch (err) {
+        console.error("Erro ao carregar API", err);
+        setLoading(false);
+        setError(true);
+      }
+    };
+    getEvolutions();
+ }, [specie]);a
+
+ useEffect(() => {
+  const setPoke = async () => {
+    try {
+      setMyPokemon({
+        nome: pokemons.name,
+        vida: pokemons.stats[0].base_stat,
+        ataque: pokemons.stats[1].base_stat,
+        tipo: pokemons.types[0].type.name,
+        evolucao: evolution.chain.species.name,
+        imagem: pokemons.sprites.front_default,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  setPoke();
+}, [evolution, pokemons]);
+
   return { pokemons, loading, error }
 }
 

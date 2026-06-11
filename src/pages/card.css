@@ -64,10 +64,21 @@ body,
   width: 270px;
   background: var(--card-bg);
   transition: all 0.2s ease;
-  background-color: #ADD8E6;
   margin-left: auto;
   margin-right: auto;
 }
+.pokemon-card img{
+  width: 115px;
+}
+.pokemon-card.water {
+  background-color: #ADD8E6;
+  
+}
+.pokemon-card.rock {
+  background-color: grey;
+
+}
+
 
 .pokemon-card:hover {
   transform: translateY(-4px);

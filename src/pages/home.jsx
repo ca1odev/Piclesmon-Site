@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import './home.css';
 import fundo from '../assets/fundo.jpg';
 import avatar from '../assets/avatar.png';
@@ -26,12 +25,13 @@ function TrainerPage() {
 <p><strong>Pokemons: 3</strong></p>
 
 <div className="pokebolas">
+{Pokebutton("/pokemon/mudkip")}
 
-<PokeballButton to="/pokemon/mudkip" />
+{Pokebutton("/pokemon/geodude")}
 
-<PokeballButton to="/pokemon/geodude" />
+{Pokebutton("/pokemon/staryu")}
 
-<PokeballButton to="/pokemon/staryu" />
+
 
 </div>
 </div>
