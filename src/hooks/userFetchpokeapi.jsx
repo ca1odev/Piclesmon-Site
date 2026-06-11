@@ -68,7 +68,7 @@ function useFetchPokeapi(pokemon) {
       }
     };
     getEvolutions();
- }, [specie]);a
+ }, [specie]);
 
  useEffect(() => {
   const setPoke = async () => {

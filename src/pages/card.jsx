@@ -24,13 +24,13 @@ return (
     <div className="pokemon-container">
        <div className={`pokemon-card ${myPokemon.tipo}`} >
         <h3>{myPokemon.nome}</h3>
-        <img src={pokemons.sprites.other['official-artwork'].front_default}  alt={myPokemon.nome} />
+        <img src={myPokemon.sprites.other['official-artwork'].front_default}  alt={myPokemon.nome} />
        
         <div className="stats">
-      <p><strong>HP:</strong> {pokemons.stats[0].base_stat}</p>
-      <p><strong>Attack:</strong> {pokemons.stats[1].base_stat}</p>
-      <p><strong>Defense:</strong> {pokemons.stats[2].base_stat}</p>
-      <p><strong>Speed:</strong> {pokemons.stats[5].base_stat}</p>
+      <p><strong>HP:</strong> {myPokemon.vida}</p>
+      <p><strong>Attack:</strong> {myPokemon.ataque}</p>
+      <p><strong>Defense:</strong> {myPokemon.stats[2].base_stat}</p>
+      <p><strong>Speed:</strong> {myPokemon.stats[5].base_stat}</p>
     </div>  
         <div className="types">
 
