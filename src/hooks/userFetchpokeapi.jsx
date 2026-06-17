@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function useFetchPokeapi(pokemon) {
+function useFetchPokeapi(poke) {
   console.log('iniciando construção da pagina')
   const [pokemons, setPokemons] = useState({});
   const [loading, setLoading] = useState(true);
@@ -9,21 +9,14 @@ function useFetchPokeapi(pokemon) {
   const [specie, setSpecie] = useState({});
   const [evolution, setEvolution] = useState({});
   const [myPokemon, setMyPokemon] = useState({});
+  const [myType, setMyType] = useState('');
+
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`,
-          {
-            headers: {
-              'Cache-Control': 'no-cache',
-              'Pragma': 'no-cache',
-              'Expires': '0',
-            }
-          });
-
-
-       
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${poke}`);
+      
 
         setPokemons(res.data);
         console.log('Success:', res.data);
@@ -35,61 +28,90 @@ function useFetchPokeapi(pokemon) {
         setError(true)
       }
     };
-    getData();
-  }, [pokemons]);
+   if(poke) getData();
+  }, [poke]);
 
   useEffect(() => { //useEffect busca o pokemon da api, usando o pokemon da url
     const getSpecie = async () => {
       try {
-        const res = await axios.get(pokemons.specie.url, {});
+        const res = await axios.get(pokemons.species.url, {});
         setSpecie(res.data);
         console.log("Sucesso:", res)
-        setLoading(false);
       } catch (err) {
         console.error("Erro ao carregar API", err);
-        setLoading(false);
-        setError(true);
       }
     };
     getSpecie();
  }, [pokemons]); 
 
- useEffect(() => { //useEffect busca o pokemon da api, usando o pokemon da url
+ useEffect(() => { 
     const getEvolutions = async () => {
       try {
         const res = await axios.get(specie.evolution_chain.url, {});
         setEvolution(res.data);
         console.log("Sucesso:", res)
-        setLoading(false);
       } catch (err) {
         console.error("Erro ao carregar API", err);
-        setLoading(false);
-        setError(true);
       }
     };
     getEvolutions();
  }, [specie]);
 
  useEffect(() => {
-  const setPoke = async () => {
+  const getMyType = async () => {
+    try {
+    if(pokemons.types[0].type.name === 'normal' || pokemons.types[0].type.name === 'fighter'){
+      setMyType  ('corpo');
+    } else if(pokemons.types[0].type.name === 'psychic' || pokemons.types[0].type.name === 'fairy'){
+    
+      setMyType  ('mente');
+    }else if(pokemons.types[0].type.name === 'ghost' || pokemons.types[0].type.name === 'dark'){
+    
+      setMyType  ('sombra');
+   
+    }else if(pokemons.types[0].type.name === 'grass' || pokemons.types[0].type.name === 'bug' || pokemons.types[0].type.name === 'poison'){
+      setMyType('natureza');
+    
+    }else if(pokemons.types[0].type.name === 'water' || pokemons.types[0].type.name === 'ice'){
+      setMyType('agua');
+     
+    }else if(pokemons.types[0].type.name === 'ground' || pokemons.types[0].type.name === 'steel' || pokemons.types[0].type.name === 'rock'){
+      setMyType('terra');
+      
+    }else if(pokemons.types[0].type.name === 'electric' || pokemons.types[0].type.name === 'flying' || pokemons.types[0].type.name === 'dragon'){
+      setMyType('tempestade');
+
+    }else if(pokemons.types[0].type.name === 'fire'){
+      setMyType('fogo');
+    };
+    } catch (err) {
+      console.log(err);
+    }
+  };  
+  getMyType();
+}, [pokemons]);
+
+ useEffect(() => {
+  const myPokemon = async () => {
     try {
       setMyPokemon({
         nome: pokemons.name,
         vida: pokemons.stats[0].base_stat,
         ataque: pokemons.stats[1].base_stat,
-        tipo: pokemons.types[0].type.name,
+        tipo: myType,
         evolucao: evolution.chain.species.name,
-        imagem: pokemons.sprites.front_default,
+        imagem: pokemons.sprites.other['official-artwork'].front_default,
+        imagemshiny: pokemons.sprites.front_shiny,
       });
     } catch (err) {
       console.error(err);
     }
   };
 
-  setPoke();
-}, [evolution, pokemons]);
+  myPokemon();
+}, [evolution, pokemons, myType]);
 
-  return { pokemons, loading, error }
+  return { myPokemon, loading, error }
 }
 
 export default useFetchPokeapi;

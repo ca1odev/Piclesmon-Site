@@ -24,22 +24,16 @@ return (
     <div className="pokemon-container">
        <div className={`pokemon-card ${myPokemon.tipo}`} >
         <h3>{myPokemon.nome}</h3>
-        <img src={myPokemon.sprites.other['official-artwork'].front_default}  alt={myPokemon.nome} />
+        <img src={myPokemon.imagem}  alt={myPokemon.nome} />
        
         <div className="stats">
       <p><strong>HP:</strong> {myPokemon.vida}</p>
       <p><strong>Attack:</strong> {myPokemon.ataque}</p>
-      <p><strong>Defense:</strong> {myPokemon.stats[2].base_stat}</p>
-      <p><strong>Speed:</strong> {myPokemon.stats[5].base_stat}</p>
     </div>  
         <div className="types">
+          <p>{myPokemon.tipo}</p>
 
-        {myPokemon.types.map((type, index) => (
-        <span key={index} className={`type ${type.type.name}`}>
-          {type.type.name}
-        </span>
-      ))}
-    </div>
+          </div>
         </div>
     </div>
   </div>
